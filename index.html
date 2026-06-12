@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech Kahani — stories that explain how machines think</title>
+<meta name="description" content="Tech Kahani: intuition-first stories about how machines think. No prerequisites, ever.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="eyebrow">Tech <span class="dev">कहानी</span></div>
+  <h1>Stories that explain <em>how machines think</em></h1>
+  <div class="alt">Intuition first. Terminology second. No prerequisites, ever.</div>
+  <div class="cup" aria-hidden="true">
+    <svg viewBox="0 0 120 120">
+      <g class="steam">
+        <path d="M48 52 C44 42, 54 38, 50 28"/>
+        <path d="M60 50 C56 40, 66 36, 62 26"/>
+        <path d="M72 52 C68 42, 78 38, 74 28"/>
+      </g>
+      <path d="M34 64 h52 v16 a26 26 0 0 1 -52 0 z" fill="none" stroke="#e8a33d" stroke-width="3"/>
+      <path d="M86 68 h8 a8 8 0 0 1 0 16 h-6" fill="none" stroke="#e8a33d" stroke-width="3"/>
+      <path d="M30 104 h60" stroke="#4a3826" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="meta" id="season-label">Book One · Season 1: The Office Café</div>
+</header>
+
+<p class="promise">You won't remember the definitions. You'll remember the characters — <strong>a robot who ruined the tea, an Inspector who scores everything, a rabbit with a steel ruler</strong> — and through them, the ideas, years later.</p>
+
+<section class="shelf">
+  <div class="shelf-label">The episodes</div>
+  <div id="shelf"></div>
+</section>
+
+<footer>
+  <span class="fk">TECH KAHANI</span> · <span id="f-tagline">stories that explain how machines think</span><br>
+  <span id="f-credit">by Shubh Pathak · written openly with AI as a creative partner</span><br>
+  free to read, forever
+</footer>
+
+<script>
+fetch('manifest.json').then(function(r){return r.json()}).then(function(m){
+  document.getElementById('season-label').textContent = m.series.book + ' · ' + m.series.season;
+  document.getElementById('f-tagline').textContent = m.series.tagline;
+  document.getElementById('f-credit').textContent = 'by ' + m.series.author + ' · ' + m.series.credit;
+  var shelf = document.getElementById('shelf');
+  var words = ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve'];
+  m.episodes.forEach(function(ep){
+    var live = ep.status === 'live';
+    var el = document.createElement(live ? 'a' : 'div');
+    el.className = 'epcard' + (live ? '' : ' brewing');
+    if(live) el.href = 'read.html?ep=' + ep.n;
+    el.innerHTML =
+      '<div class="num">Episode ' + (words[ep.n]||ep.n) + '</div>' +
+      '<h3>' + ep.title + '</h3>' +
+      '<div class="ealt">' + ep.alt + '</div>' +
+      (ep.minutes ? '<div class="emeta">' + ep.minutes + '</div>' : '');
+    shelf.appendChild(el);
+  });
+});
+</script>
+</body>
+</html>

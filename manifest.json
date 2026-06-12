@@ -1,0 +1,27 @@
+{
+  "series": {
+    "name": "Tech Kahani",
+    "tagline": "stories that explain how machines think",
+    "book": "Book One: How Machines Think",
+    "season": "Season 1: The Office Café",
+    "author": "Shubh Pathak",
+    "credit": "written openly with AI as a creative partner"
+  },
+  "episodes": [
+    {
+      "n": 1,
+      "file": "episodes/ep1.md",
+      "title": "The Robot Who Ruined the Tea",
+      "alt": "or: How Machines Learn",
+      "minutes": "10 min read",
+      "status": "live"
+    },
+    {
+      "n": 2,
+      "title": "The New Employee Problem",
+      "alt": "or: Why Memorizing Isn't Learning",
+      "minutes": "",
+      "status": "brewing"
+    }
+  ]
+}
