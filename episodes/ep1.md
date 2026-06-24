@@ -53,6 +53,8 @@ The first cup contained ten spoons of sugar, half a spoon of tea leaves, a heroi
 
 The plant wilted.
 
+Nobody noticed Anya move it. She had a way of looking at whatever nobody else was looking at, and right now that was a dying plant instead of a dripping robot. She worked two desks down from the café, and by the time most people had given up on their tea, she had already carried the plant to the window, wiped its leaves, and given it water from her own bottle. She didn't say anything about the tea, or the robot, or the office's collective grief. She just made room for the plant to try again.
+
 "Feedback received," said Robby. "Tomorrow, I will make the perfect tea."
 
 Tomorrow's tea was worse. So was Wednesday's. By Thursday, the money plant had stopped recovering between attempts, and a shadow fell across the counter.
@@ -103,7 +105,7 @@ The next morning, the Inspector found him at the counter, staring at the wall of
 
 The Inspector paused, genuinely puzzled by the question. "Zero? I have never written a zero. I keep the ink ready out of professionalism, not optimism."
 
-"Then how do I-" Robby began.
+"Then how do I..." Robby began.
 
 From the corner table came a long, weary sigh.
 
@@ -123,13 +125,15 @@ Robby tilted his head.
 
 Robby's eyes lit up with terrible purpose. He had understood the direction. He had not understood the amount.
 
-He spun the sugar dial to zero. He spun the leaves dial to maximum. "And the ginger-" the Professor began. "*Absent,*" Robby recited happily, already reaching. "Penalty: severe. I remember." The Professor lunged and caught the ginger dial mid-spin, knuckles white, holding it steady without a word - but the damage elsewhere was done.
+He spun the sugar dial to zero. He spun the leaves dial to maximum. "And the ginger..." the Professor began. "*Absent,*" Robby recited happily, already reaching. "Penalty: severe. I remember." The Professor lunged and caught the ginger dial mid-spin, knuckles white, holding it steady without a word, but the damage elsewhere was done.
 
 The kettle poured. The teapot received its new recipe, considered it, and began to tremble.
 
 Then it whistled. Then it stopped whistling, which was worse.
 
 The explosion redecorated the ceiling. When the steam cleared, one long chai stain stretched above the counter, and the office stood in dripping silence.
+
+Anya was the first to move. While the others stared at the ceiling, she was already looking at Robby, the only person in the room not looking up. She found a towel, crossed the room without a word, and wiped a smear of chai off Robby's face plate, gently, the way you'd clean a child's chin. Then she stepped back into the crowd before anyone thought to thank her.
 
 The Inspector wiped his glasses, uncapped his pen, and wrote: *Ceiling: 100. New category.*
 
@@ -149,7 +153,7 @@ She was Tiny Steps - the Professor's old student, though neither led with that -
 
 Then she measured Robby's three rotations against a small steel ruler and delivered the diagnosis: "Your 'little' is my 'catapult.'"
 
-"Then how much-"
+"Then how much..."
 
 "One notch." The ruler again. "One notch per cup, in the direction the trace says. Big turns made your ceiling." She thumped his chassis. "Tiny turns, and your gears rust before the kettle boils."
 
@@ -177,7 +181,7 @@ By noon, his sugar dial was swinging like a metronome, and the day's scores read
 
 The Professor watched the dial whiplash. He reached toward the panel - then stopped, hand hovering. They were not his dials to turn. They never would be.
 
-"You have one set of dials," he said, quietly enough that Robby stopped. "One set of dials makes one tea. Chase two opposite drinkers and you will spin until you rust. Brew to the Standard. It is everyone's tea, which is why it is no one's favourite. The rest-" he looked at the dials a moment longer, "-needs a machine you do not have yet."
+"You have one set of dials," he said, quietly enough that Robby stopped. "One set of dials makes one tea. Chase two opposite drinkers and you will spin until you rust. Brew to the Standard. It is everyone's tea, which is why it is no one's favourite. The rest," he looked at the dials a moment longer, "needs a machine you do not have yet."
 
 Robby returned to the Standard. The wall resumed its descent: 40. 31. 23.
 
@@ -212,6 +216,8 @@ Then, one Tuesday, the door opened, and the room went quiet a different way.
 Mrs. D'Souza. She did not order. She examined. "One cup," she said. "However you make it now."
 
 The Inspector slid the Standard back into its leather case. For this one cup, the room had an older authority.
+
+Anya reached over and straightened the dial panel on Robby's chest, the way she always did when nobody else thought to. She didn't say anything. She never did. Then she stepped back into the crowd.
 
 Robby brewed - and said, in the smallest voice the office had ever heard from him, "I believe this one may be acceptable."
 
