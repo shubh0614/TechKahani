@@ -177,3 +177,37 @@ footer{border-top:1px solid var(--line);margin-top:80px;padding:42px 24px 60px;t
   font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;color:var(--faint);line-height:2.2}
 footer .fk{color:var(--turmeric)}
 footer a{color:var(--dim)}
+
+/* ------- notebook control (Ep 2+) ------- */
+.nbook{border:1px solid var(--line);border-radius:6px;background:var(--ink);overflow:hidden;
+  margin-bottom:12px;transition:opacity .5s ease}
+.nbook-head{display:grid;grid-template-columns:1fr 1fr;font-size:.5rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--faint);border-bottom:1px solid var(--line)}
+.nbook-head span{padding:6px 8px}
+.nbook-head span:first-child{border-right:1px solid var(--line)}
+.nbook-body{max-height:190px;overflow:hidden}
+.nb-row{display:grid;grid-template-columns:1fr 1fr;font-size:.54rem;line-height:1.5;
+  border-bottom:1px solid rgba(74,56,38,.35)}
+.nb-row:last-child{border-bottom:none}
+.nb-l,.nb-r{padding:5px 8px;transition:opacity .6s ease, color .6s ease}
+.nb-l{border-right:1px solid rgba(74,56,38,.35);color:var(--foam)}
+.nb-r{color:var(--dim)}
+.nbook.dim-left .nb-l{opacity:.18}
+.nbook.dim-right .nb-r{opacity:.28}
+.nbook.lit-left .nb-l{color:var(--turmeric)}
+.nbook.lit-right .nb-r{color:var(--turmeric);opacity:1}
+.nb-row.blank .nb-l::after{content:"?";color:var(--ember);opacity:.8}
+.nb-row.blank .nb-l{color:transparent}
+.nb-row.blank{border-color:rgba(217,108,71,.4)}
+.nbook.monkey .nb-row{font-size:.4rem;line-height:1.25}
+.nbook.monkey .nb-r{color:var(--ember);opacity:.9}
+.nbook.closed{opacity:.12}
+.nbook-note{font-size:.5rem;letter-spacing:.14em;color:var(--faint);text-align:center;
+  padding:5px 0 0;text-transform:uppercase;min-height:1.4em}
+.dials.frozen{opacity:.4;transform:scale(.72);transform-origin:top center;margin-bottom:-14px}
+.dials.frozen .knob{transition:none}
+@media(max-width:1179px){
+  .nbook{display:none}
+  .nbook-note{display:none}
+  .dials.frozen{opacity:.5;transform:none;margin:0}
+}

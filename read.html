@@ -89,7 +89,21 @@
     var panel = document.getElementById('panel');
     var controls = {};
     if(cfg.panel && cfg.panel.controls){
-      var html = '<div class="ptitle">' + (cfg.panel.name||'') + '</div><div class="dials">';
+      var html = '<div class="ptitle">' + (cfg.panel.name||'') + '</div>';
+      // notebook controls render first (they are the headline object when present)
+      cfg.panel.controls.forEach(function(c){
+        if(c.type==='notebook'){
+          html += '<div class="nbook" id="ctl-'+c.id+'">';
+          html += '<div class="nbook-head"><span>'+(c.left||'')+'</span><span>'+(c.right||'')+'</span></div>';
+          html += '<div class="nbook-body" id="nbbody-'+c.id+'">';
+          (c.rows||[]).forEach(function(r){
+            html += '<div class="nb-row"><div class="nb-l">'+r[0]+'</div><div class="nb-r">'+r[1]+'</div></div>';
+          });
+          html += '</div></div>';
+          html += '<div class="nbook-note" id="nbnote-'+c.id+'"></div>';
+        }
+      });
+      html += '<div class="dials'+(cfg.panel.dialsFrozen?' frozen':'')+'">';
       cfg.panel.controls.forEach(function(c){
         if(c.type==='dial') html += '<div class="dial"><div class="knob" id="ctl-'+c.id+'"></div><label>'+c.label+'</label></div>';
       });
@@ -100,7 +114,13 @@
       });
       html += '<div class="pstatus" id="pstatus"></div>';
       panel.innerHTML = html;
-      cfg.panel.controls.forEach(function(c){ controls[c.id] = {el: document.getElementById('ctl-'+c.id), type: c.type}; });
+      cfg.panel.controls.forEach(function(c){
+        controls[c.id] = {el: document.getElementById('ctl-'+c.id), type: c.type, def: c};
+        if(c.type==='notebook'){
+          controls[c.id].body = document.getElementById('nbbody-'+c.id);
+          controls[c.id].note = document.getElementById('nbnote-'+c.id);
+        }
+      });
     } else {
       panel.style.display = 'none';
     }
@@ -187,11 +207,34 @@
         if(c.type==='dial') c.el.style.transform = 'rotate('+s[id]+'deg)';
         if(c.type==='lever') c.el.classList.toggle('on', !!s[id]);
         if(c.type==='light') c.el.classList.toggle('on', !!s[id]);
+        if(c.type==='notebook') applyNotebook(c, s[id]);
       });
       if(pstatus && s.status) pstatus.textContent = s.status;
       if(s.shake && !reduced){ panel.classList.remove('shake'); void panel.offsetWidth; panel.classList.add('shake'); }
       if(ch in lossBy) animateLoss(lossBy[ch]);
     }
+    function applyNotebook(c, st){
+      if(!st || typeof st !== 'object') return;
+      var n = c.el;
+      n.classList.toggle('dim-left',  st.left  === 'dim');
+      n.classList.toggle('lit-left',  st.left  === 'lit');
+      n.classList.toggle('dim-right', st.right === 'dim');
+      n.classList.toggle('lit-right', st.right === 'lit');
+      n.classList.toggle('monkey', !!st.monkey);
+      n.classList.toggle('closed', !!st.closed);
+      // rebuild rows if this state supplies its own
+      var rows = st.rows || c.def.rows || [];
+      var html = '';
+      rows.forEach(function(r){
+        html += '<div class="nb-row"><div class="nb-l">'+r[0]+'</div><div class="nb-r">'+r[1]+'</div></div>';
+      });
+      for(var i=0; i<(st.blanks||0); i++){
+        html += '<div class="nb-row blank"><div class="nb-l">?</div><div class="nb-r"></div></div>';
+      }
+      c.body.innerHTML = html;
+      if(c.note) c.note.textContent = st.note || '';
+    }
+
     function animateLoss(target){
       if(reduced){ lossCurrent=target; lossval.textContent=target; return; }
       cancelAnimationFrame(lossAnim);
