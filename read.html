@@ -202,14 +202,21 @@
     function applyState(ch){
       if(ch===current || !states[ch]) return; current=ch;
       var s = states[ch];
+      var bookNote = null;
       Object.keys(controls).forEach(function(id){
         var c = controls[id]; if(!(id in s)) return;
         if(c.type==='dial') c.el.style.transform = 'rotate('+s[id]+'deg)';
         if(c.type==='lever') c.el.classList.toggle('on', !!s[id]);
         if(c.type==='light') c.el.classList.toggle('on', !!s[id]);
-        if(c.type==='notebook') applyNotebook(c, s[id]);
+        if(c.type==='notebook'){ applyNotebook(c, s[id]); if(s[id] && s[id].note) bookNote = s[id].note; }
       });
-      if(pstatus && s.status) pstatus.textContent = s.status;
+      if(pstatus && s.status){
+        // On narrow screens the notebook table is hidden; fold its caption into
+        // the status line so the story beat still reaches mobile readers.
+        var isMobile = window.matchMedia('(max-width: 1179px)').matches;
+        pstatus.textContent = (isMobile && bookNote) ? (s.status + ' \u00b7 ' + bookNote) : s.status;
+        pstatus.classList.toggle('has-note', !!(isMobile && bookNote));
+      }
       if(s.shake && !reduced){ panel.classList.remove('shake'); void panel.offsetWidth; panel.classList.add('shake'); }
       if(ch in lossBy) animateLoss(lossBy[ch]);
     }
@@ -290,6 +297,9 @@
       var doc=document.documentElement;
       var p=window.scrollY/(doc.scrollHeight-window.innerHeight);
       document.getElementById('fill').style.width = Math.min(100,Math.max(0,p*100))+'%';
+    }, {passive:true});
+    window.addEventListener('resize', function(){
+      var ch=current; current=null; if(ch!==null) applyState(ch);
     }, {passive:true});
   }
 
